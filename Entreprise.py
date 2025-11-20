@@ -48,3 +48,74 @@ def gestion_des_clients():
         elif choix == "2":
             nom = input("Entrez le nom du client : ")
             supprimer_client(nom)
+
+
+
+
+
+
+for client in liste_clients:
+    depenses[client] = 0
+def ajouter_depense(nom, montant):
+    if nom in depenses:
+        depenses[nom] += montant
+    else:
+        return "Ce client n'existe pas."
+def afficher_depenses():
+    print("Dépenses des clients:")
+    for client, montant in depenses.items():
+        print(f"{client}: {montant} unités")
+def menu_depenses():
+    while True:
+        print("\nMenu Dépenses:")
+        print("1. Ajouter une dépense")
+        print("2. Afficher les dépenses")
+        print("3. Quitter")
+        choix = input("Choisissez une option: ")
+        
+        if choix == '1':
+            nom = input("Entrez le nom du client: ")
+            try:
+                montant = float(input("Entrez le montant de la dépense: "))
+                resultat = ajouter_depense(nom, montant)
+                if resultat:
+                    print(resultat)
+                else:
+                    print(f"Dépense de {montant} unités ajoutée pour le client '{nom}'.")
+            except ValueError:
+                print("Montant invalide. Veuillez entrer un nombre.")
+        
+        elif choix == '2':
+            afficher_depenses()
+        
+        elif choix == '3':
+            print("Quitter le menu dépenses.")
+            break
+        
+        else:
+            print("Option invalide. Veuillez réessayer.")
+
+
+
+
+
+
+
+
+
+
+
+print("Bienvenue dans le système de gestion des clients et des dépenses.")
+print("MENU PRINCIPAL:")
+while True:
+    print("1. Gérer les clients")
+    print("2. Gérer les dépenses")
+    print("3. Quitter le programme")
+    choix_utilisateur = input("Choisissez une option: ")
+    
+    if choix_utilisateur == '1':
+        menu_clients()
+    elif choix_utilisateur == '2':
+        menu_depenses()
+    
+    
