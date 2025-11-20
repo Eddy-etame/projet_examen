@@ -83,6 +83,9 @@ def ajouter_achat(nom, montant):
                     montant_produit = item[1] 
                     true += 1
                     break  
+            else:
+                print("Le produit non trouvé.")
+            
             if montant_produit == 0:
                 print("Le produit non trouvé.")
             else:
@@ -132,13 +135,12 @@ for i in range(len(nom_produit)):
  #   catalogue.append((nom_produit[i], prix_produit[i]))
   #  print(catalogue, "euros")
 #catalogue_produits = (catalogue)
-#print(catalogue_produits)
+print(catalogue_produits)
 
 def afficher_catalogue():
     print("Catalogue des produits:")
     catalogue_produits = (catalogue)
-    for nom_produit, prix in catalogue_produits.items():
-        print(f"{nom_produit}: {prix} EUR")
+    print(catalogue_produits)
 
 def ajouter_produit():
     nom_produit = input("Entrez le nom du produit: ")
@@ -155,11 +157,12 @@ def supprimer_produit():
         if produit[0] == nom_produit:
             catalogue.remove(produit)
             print(f"Le produit {nom_produit} a été supprimé.")
+            produit_trouve = True
             break
-        else:
-            print(f"Le produit {nom_produit} n'existe pas.")
-        catalogue_produits = (catalogue)
-        print(catalogue_produits)
+    if not produit_trouve:
+        print(f"Le produit {nom_produit} n'existe pas.")
+    catalogue_produits = (catalogue)
+    print(catalogue_produits)
 
 def menu_gestion_produits():
     while True:
