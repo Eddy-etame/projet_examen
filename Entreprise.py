@@ -1,4 +1,4 @@
-liste_clients = ["Atangana","Moukoko","Ngono","Essomba"]
+liste_clients = ["Eddy","Raphael","Anthony","Essomba"]
 
 def ajouter_client(nom):
     if nom not in liste_clients:
